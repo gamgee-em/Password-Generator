@@ -27,7 +27,7 @@ let specChars = "!#$%?";
 let passArr = [];
 let password = [];
 
-
+//need to fix prompt to activate on event click not on
 let generatePassword = () => {
   // ask user to pick password length
   let userLenChars = prompt("Choose a password length between 8 & 128 characters");
@@ -103,4 +103,9 @@ let generatePassword = () => {
 
 };
 
-console.log(generatePassword());
+/* 
+  ***Fix bug***
+  When #generate click event is fired more than once without reloading the page
+  the previous prompt inputs are stored.
+  possible solution: find a way to reset function or reload browser?
+*/
