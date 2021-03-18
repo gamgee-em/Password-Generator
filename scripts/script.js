@@ -1,21 +1,4 @@
 /* // Assignment Code
-var generateBtn = document.querySelector("#generate");
-// Write password to the #password input
-function writePassword() {
-  
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
-} */
-// Add event listener to generate button
-
-/* let generateBtn = document.querySelector("#generate");
- */
-// Add password character options
-
-/* let userUpChars = confirm("Would you like UPPERCASE characters?");
-let userLowChars = confirm("Would you like lowercase characters?");
-let userNumChars = confirm("Would you like num3r1ca1 characters?");
-let userSpecChars = confirm("Would you like $pec!al characters?"); */
 
 /* var password = generatePassword(); */
 
@@ -27,7 +10,7 @@ let specChars = "!#$%?";
 let passArr = [];
 let password = [];
 
-//need to fix prompt to activate on event click not on
+//need to fix prompt to activate on event click not on browser load
 let generatePassword = () => {
   // ask user to pick password length
   let userLenChars = prompt("Choose a password length between 8 & 128 characters");
@@ -38,34 +21,30 @@ let generatePassword = () => {
   let userNumChars = confirm("Would you like num3r1ca1 characters?");
   let userSpecChars = confirm("Would you like $pec!al characters?");
   
-  if ( userLenChars === null || userLenChars == '' || userLenChars < 8 || userLenChars > 128) {
+  if (userLenChars === null || userLenChars == '' || userLenChars < 8 || userLenChars > 128) {
     return userLenChars;
     //why is this statement continuing to run after returning false?
+    //try else if statement 
   } else {
-
     if (userUpChars) {
-      /*console.log(upChars);*/
       password.push(upChars);
     } else {
       console.log('It\'d be safer if you did!')
     }
 
     if (userLowChars) {
-      /*console.log(lowChars);*/
       password.push(lowChars);
     } else {
       console.log('It\'d be safer if you did!')
     }
 
     if (userNumChars) {
-      /*console.log(numChars);*/
       password.push(numChars);
     } else {
       console.log('It\'d be safer if you did!')
     }
 
     if (userSpecChars) {
-      /*console.log(specChars);*/
       password.push(specChars);
     } else {
       console.log('It\'d be safer if you did!')
@@ -73,39 +52,24 @@ let generatePassword = () => {
   
     passCharStr = password.join("");
   }
-    console.log(passCharStr);
  
-
   let randPassArr = [];
-  console.log(passCharStr[Math.floor(Math.random() * passCharStr.length)]);
 
   for (let i = 0; i < userLenChars; i++) {
     if (randPassArr.length <= userLenChars) {
-      
       randPassArr.push(passCharStr[Math.floor(Math.random() * passCharStr.length)]);
-
-      //maybe try pushing an array instead?
-      //push entire passCharStr into randPassword arrays
-      console.log(passCharStr);
-/*       randPassArr.push(passCharStr[Math.floor(Math.random() * passCharStr.length)]);
- */      console.log(randPassArr);
-/*       return randPassArr.join("");
- */    }
-    // randPassArr still an array when logged
-    console.log(randPassArr);
-    // randPassArr now a string when returned
-/*     return randPassArr.join("");
- */  }
-  console.log(randPassArr);
+  }
+}
   return document.getElementById('password').innerHTML = randPassArr.join("");
-  /* document.getElementById('#generate').innerHTML = randPassArr.join(""); */
-  /* return randPassArr.join(""); */
+
 
 };
 
 /* 
   ***Fix bug***
-  When #generate click event is fired more than once without reloading the page
-  the previous prompt inputs are stored.
-  possible solution: find a way to reset function or reload browser?
+  When the browser first loads the generate click event executes as expected.
+  When #generate click event is fired a second time or more (generate password button is pressed and consecutive passwords are generated) 
+  within the browser without reloading the page the previous prompt char choice values are still in memory.
+  When the browser is reloaded the function then works as expected for only the first execution.
+  possible direction: find a way to reset function or reload browser?
 */
