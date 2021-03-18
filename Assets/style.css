@@ -119,6 +119,10 @@ button[disabled] {
 }
 
 @media (max-width: 690px) {
+
+  h2 {
+    text-align: center;
+  }
   .btn {
     font-size: 1rem;
     margin: 16px 0px 0px 0px;
