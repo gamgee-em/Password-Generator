@@ -7,14 +7,14 @@ let charArr = ["ABCDEFGHIJKLMNOPQRSTUVWXYZ", "abcdefghijklmnopqrstuvwxyz", "0123
 let displayPass = document.getElementById('generate');
 displayPass.addEventListener('click', generatePassword);
 
-let password = [];
-let passCharStr = [];
 
 
 // Generate random password function
 
 function generatePassword() {
   let randPassArr = [];
+  let password = [];
+  let passCharStr = [];
 
   // ask user to pick password length
   let userLenChars = prompt("Choose a password length between 8 & 128 characters");
@@ -31,6 +31,9 @@ function generatePassword() {
   } else {
     if (userUpChars) {
       password.push(charArr[0]);
+      //
+      randPassArr.push(charArr[0][Math.floor(Math.random() * charArr[0].length)]);
+
     } else {
       // try to alert user instead of logging
       console.log('It\'d be safer if you did!')
@@ -38,18 +41,24 @@ function generatePassword() {
 
     if (userLowChars) {
       password.push(charArr[1]);
+      randPassArr.push(charArr[1][Math.floor(Math.random() * charArr[1].length)]);
+
     } else {
       console.log('It\'d be safer if you did!')
     }
 
     if (userNumChars) {
       password.push(charArr[2]);
+      randPassArr.push(charArr[2][Math.floor(Math.random() * charArr[2].length)]);
+
     } else {
       console.log('It\'d be safer if you did!')
     }
 
     if (userSpecChars) {
       password.push(charArr[3]);
+      randPassArr.push(charArr[3][Math.floor(Math.random() * charArr[3].length)]);
+
     } else {
       console.log('It\'d be safer if you did!')
     }
@@ -62,7 +71,7 @@ function generatePassword() {
   // different type of loop passCharStr.forEach(x => { x[Math.floor(Math.random() * passCharStr.length)]}) 
   // or something of the sort.
   for (let i = 0; i < userLenChars; i++) {
-    if (randPassArr.length <= userLenChars) {
+    if (randPassArr.length < userLenChars) {
       randPassArr.push(passCharStr[Math.floor(Math.random() * passCharStr.length)]);
     }
   }

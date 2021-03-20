@@ -119,7 +119,8 @@ button[disabled] {
 }
 
 @media (max-width: 690px) {
-
+  
+  /* Center h2 div */
   h2 {
     text-align: center;
   }
