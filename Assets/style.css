@@ -118,7 +118,7 @@ button[disabled] {
   overflow: hidden;
 }
 
-@media (max-width: 690px) {
+@media (min-width: 765px) {
   
   /* Center h2 div */
   h2 {
