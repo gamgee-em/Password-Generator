@@ -12,6 +12,10 @@ body,
   padding: 0;
 }
 
+h2 {
+  text-align: center;
+}
+
 body {
   font-family: sans-serif;
   background-color: #f9fbfd;
@@ -123,12 +127,8 @@ button[disabled] {
   overflow: hidden;
 }
 
-@media (min-width: 765px) {
-  
-  /* Center h2 div */
-  h2 {
-    text-align: center;
-  }
+@media (max-width: 765px) {
+
   .btn {
     font-size: 1rem;
     margin: 16px 0px 0px 0px;
@@ -142,9 +142,6 @@ button[disabled] {
 
 @media (max-width: 500px) {
 
-  h2 {
-    text-align: center;
-  }
   .btn {
     font-size: 0.8rem;
   }
