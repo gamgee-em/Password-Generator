@@ -8,7 +8,7 @@ function generatePassword() {
   let randPass = [];
   let password = [];
   let passCharStr = [];
-  let regExp = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W\_])[A-Za-z\d\W\_]{8,}$/;
+  let regExp = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W\_])[A-Za-z\d\W\_]{8,128}$/;
   let finalPass = document.getElementById('password');
   let genHeader = document.getElementById('gen-header');
   // ask user to pick password length
