@@ -9,6 +9,7 @@ function generatePassword() {
   let randPass = [];
   let password = [];
   let passCharStr = [];
+  let regExp = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W\_])[A-Za-z\d\W\_]{8,}$/;
   let finalPass = document.getElementById('password');
   let genHeader = document.getElementById('gen-header');
   // ask user to pick password length
@@ -30,7 +31,7 @@ function generatePassword() {
   // ask the user if they would like to include uppecase, lowercase, numerical and/or special characters.
   // use user input from prompts to generate password array
   let userUpChars = confirm("Would you like UPPERCASE characters?");
-  userUpChars ? password.push(charArr[0]) : safePrompt();
+  userUpChars ? password.push(charArr[0]) & console.log('hi'): safePrompt();
   
   let userLowChars = confirm("Would you like lowercase characters?");
   userLowChars ? password.push(charArr[1]) : safePrompt();
@@ -49,14 +50,20 @@ function generatePassword() {
   .toString()
   .replaceAll(',', '');
 
-  // add random char from passCharStr to randPass until
-  // randPass string length matches users desired password length
-  do {
-    randPass += passCharStr[Math.floor(Math.random() * passCharStr.length)];
-  } while (randPass.length < userLenChars);
-
-  // check if generated password includes all of the users desired characters
-  // if not return string asking user to try again.
-  genHeader.innerHTML = 'Your Secure Generated Password';
+  function checkPass() {
+    do {
+      randPass += passCharStr[Math.floor(Math.random() * passCharStr.length)];
+    } while (randPass.length < userLenChars);
+    //check if most secure password possible by including 1 of each char type
+    randPass.match(regExp) ? 
+    genHeader.innerHTML = 'Your Secure Password' : 
+    // warn user if generated password (randPass) doesn't contain all choosen chars
+    genHeader.innerHTML = 'This password could be more secure. Generate again to append additional characters.';
+    return randPass
+}
+  checkPass();
+/*   console.log(checkPass());
+ */
+  
   return finalPass.innerHTML = randPass;
 }
