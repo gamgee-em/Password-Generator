@@ -20,4 +20,4 @@ I WANT to receive a secure randomly generated password
 
 ## URL to Deployed Application
 
-<a href='https://samsweig.github.io/Password-Generator/'>My Live GitHub Site!!!</a>
+<a href='https://gamgee-em.github.io/Password-Generator/'>My Live GitHub Site!!!</a>
